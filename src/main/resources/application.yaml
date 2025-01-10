@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: GoodVideo-Autenticacao
+  datasource:
+    url: jdbc:postgresql://localhost:5432/goodvideo
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+springdoc:
+  swagger-ui:
+    path: /swagger-uidd.html
+  api-docs:
+    path: /api-docs
+  packagesToScan: com.good.video
+  paths-to-match: /usuario/**
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
