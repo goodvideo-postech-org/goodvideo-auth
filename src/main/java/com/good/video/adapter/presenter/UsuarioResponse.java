@@ -1,6 +1,6 @@
 package com.good.video.adapter.presenter;
 
-import com.good.video.domain.Usuario;
+import com.good.video.domain.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

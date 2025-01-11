@@ -1,4 +1,4 @@
-package com.good.video.domain;
+package com.good.video.domain.usuario;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -14,4 +14,5 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private UsuarioPermissoes permissao;
 }
