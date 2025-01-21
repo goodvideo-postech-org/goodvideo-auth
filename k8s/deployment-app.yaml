@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goodvideo-auth-deployment1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: goodvideo-auth
+  template:
+    metadata:
+      labels:
+        app: goodvideo-auth
+    spec:
+      containers:
+        - name: goodvideo-auth
+          image: nicollaspierre/goodvideo-autenticacao:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DATABASE_URL
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DATABASE_USER
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DATABASE_PASSWORD
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config/application.yaml
+              subPath: application.yaml
+      volumes:
+        - name: config-volume
+          configMap:
+            name: goodvideo-auth-config
