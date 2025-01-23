@@ -1,5 +1,7 @@
 package com.good.video.driver.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.good.video.adapter.controller.UsuarioController;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -27,7 +29,8 @@ public class SecurityFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = this.recoverToken(request);
         if (token != null) {
-            String email = tokenService.validateToken(token);
+            ObjectMapper mapper = new ObjectMapper();
+            String email = mapper.readTree(tokenService.validateToken(token)).get("email").asText("");
             UserDetails user = usuarioController.findByEmail(email);
 
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());

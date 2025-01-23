@@ -47,4 +47,8 @@ public class TokenService {
   private Instant generateExpirationDate() {
     return Instant.now().plus(1, ChronoUnit.DAYS).atOffset(ZoneOffset.of("-03:00")).toInstant();
   }
+
+  void setSecret(String secret) {
+    this.secret = secret;
+  }
 }
