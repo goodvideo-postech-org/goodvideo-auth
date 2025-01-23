@@ -30,6 +30,15 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean package
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.GOODVIDEO_AUTH_DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.GOODVIDEO_AUTH_DOCKERHUB_USER }}" --password-stdin
+
+    - name: Build Docker image
+      run: docker build -t ${{ secrets.GOODVIDEO_AUTH_DOCKERHUB_USER }}/goodvideo-autenticacao:latest .
+
+    - name: Push Docker image to Docker Hub
+      run: docker push ${{ secrets.GOODVIDEO_AUTH_DOCKERHUB_USER }}/goodvideo-autenticacao:latest
   
   sonar:
     needs: build  # Runs after the build job finishes successfully
@@ -60,3 +69,44 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=goodvideo-postech-org_goodvideo-auth
+  deploy_to_eks:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Install kubectl
+        run: |
+          curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x ./kubectl
+          sudo mv ./kubectl /usr/local/bin/kubectl
+
+      - name: Install aws-iam-authenticator
+        run: |
+          curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/aws-iam-authenticator
+          chmod +x ./aws-iam-authenticator
+          sudo mv ./aws-iam-authenticator /usr/local/bin/aws-iam-authenticator
+
+      - name: Update kubeconfig with EKS cluster info
+        run: aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name eks-goodvideo-cluster
+
+      - name: Clonar outro repositório
+        run: git clone https://github.com/goodvideo-postech-org/goodvideo-auth.git  # Aqui você substitui pela URL do repositório que deseja clonar
+
+      # - name: Acessar pasta do repositório clonado
+      #   run: |
+      #     cd goodvideo-upload/k8s
+
+      - name: Executar comando dentro da pasta
+        run: |
+          cd goodvideo-auth/k8s  # Novamente, acesse a pasta desejada
+          kubectl apply -f .

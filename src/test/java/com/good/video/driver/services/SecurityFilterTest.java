@@ -53,11 +53,7 @@ public class SecurityFilterTest {
         when(tokenService.validateToken(token)).thenReturn("{\"email\":\"" + email + "\"}");
         when(usuarioController.findByEmail(email)).thenReturn(userDetails);
 
-        try {
-                securityFilter.doFilterInternal(request, response, filterChain);
-        } catch (NullPointerException e) {
-
-        }
+        securityFilter.doFilterInternal(request, response, filterChain);
     }
 
     @Test
