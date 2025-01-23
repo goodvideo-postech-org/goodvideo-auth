@@ -27,8 +27,6 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                                .requestMatchers("/verificar-acesso/usuario").hasRole("user")
-                                .requestMatchers("/verificar-acesso/admin").hasRole("admin")
                                 .anyRequest().permitAll()
                         )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
