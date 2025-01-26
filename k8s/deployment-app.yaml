@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: goodvideo-auth-deployment1
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: goodvideo-auth
