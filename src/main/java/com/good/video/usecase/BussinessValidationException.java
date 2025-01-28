@@ -1,4 +1,4 @@
-package com.good.video.application.usecase;
+package com.good.video.usecase;
 
 public class BussinessValidationException extends RuntimeException {
 

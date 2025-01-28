@@ -1,12 +1,10 @@
-package com.good.video.driver.db.gateway;
+package com.good.video.adapter.gateway;
 
-import com.good.video.driver.db.gateway.UsuarioDatabaseGateway;
-import com.good.video.domain.usuario.Usuario;
+import com.good.video.entity.domain.Usuario;
 import com.good.video.driver.db.repository.UsuarioRepository;
-import com.good.video.driver.db.repository.entity.UsuarioEntity;
+import com.good.video.entity.UsuarioEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

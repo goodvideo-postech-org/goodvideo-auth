@@ -1,6 +1,5 @@
-package com.good.video.application.usecase.usuario;
+package com.good.video.usecase.usuario;
 
-import com.good.video.domain.usuario.Usuario;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public interface BuscarUsuarioPorEmailUseCase {

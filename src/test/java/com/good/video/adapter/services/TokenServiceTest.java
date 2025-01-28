@@ -1,12 +1,12 @@
-package com.good.video.driver.services;
+package com.good.video.adapter.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.when;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.good.video.domain.usuario.Usuario;
+import com.good.video.adapter.services.TokenService;
+import com.good.video.entity.domain.Usuario;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

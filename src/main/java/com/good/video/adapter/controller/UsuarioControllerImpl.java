@@ -2,9 +2,9 @@ package com.good.video.adapter.controller;
 
 import com.good.video.adapter.presenter.UsuarioRequest;
 import com.good.video.adapter.presenter.UsuarioResponse;
-import com.good.video.application.usecase.usuario.BuscarTodosUsuariosUseCase;
-import com.good.video.application.usecase.usuario.BuscarUsuarioPorEmailUseCase;
-import com.good.video.application.usecase.usuario.CadastrarUsuarioUseCase;
+import com.good.video.usecase.usuario.BuscarTodosUsuariosUseCase;
+import com.good.video.usecase.usuario.BuscarUsuarioPorEmailUseCase;
+import com.good.video.usecase.usuario.CadastrarUsuarioUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;

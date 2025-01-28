@@ -1,9 +1,9 @@
-package com.good.video.application.usecase.usuario;
+package com.good.video.usecase.usuario;
 
-import com.good.video.application.usecase.BussinessValidationException;
-import com.good.video.driver.db.gateway.UsuarioDatabaseGateway;
-import com.good.video.domain.usuario.Usuario;
-import com.good.video.domain.usuario.UsuarioPermissoes;
+import com.good.video.usecase.BussinessValidationException;
+import com.good.video.adapter.gateway.UsuarioDatabaseGateway;
+import com.good.video.entity.domain.Usuario;
+import com.good.video.entity.domain.UsuarioPermissoes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;

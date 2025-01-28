@@ -1,6 +1,6 @@
 package com.good.video.config;
 
-import com.good.video.driver.services.SecurityFilter;
+import com.good.video.adapter.services.SecurityFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
