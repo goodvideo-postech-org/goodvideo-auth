@@ -1,4 +1,4 @@
-package com.good.video.driver.services;
+package com.good.video.adapter.services;
 
 import com.good.video.driver.db.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

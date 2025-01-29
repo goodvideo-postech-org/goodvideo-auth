@@ -1,6 +1,6 @@
-package com.good.video.application.usecase.usuario;
+package com.good.video.usecase.usuario;
 
-import com.good.video.domain.usuario.Usuario;
+import com.good.video.entity.domain.Usuario;
 
 import java.util.List;
 

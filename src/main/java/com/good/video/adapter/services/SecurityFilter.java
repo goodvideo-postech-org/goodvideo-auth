@@ -1,6 +1,5 @@
-package com.good.video.driver.services;
+package com.good.video.adapter.services;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.good.video.adapter.controller.UsuarioController;
 import jakarta.servlet.FilterChain;

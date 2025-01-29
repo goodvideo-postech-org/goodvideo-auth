@@ -1,20 +1,17 @@
-package com.good.video.driver.services;
+package com.good.video.adapter.services;
 
-import java.io.File;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.good.video.domain.usuario.Usuario;
-import com.good.video.domain.usuario.UsuarioToken;
+import com.good.video.entity.domain.Usuario;
+import com.good.video.entity.domain.UsuarioToken;
 import com.google.gson.Gson;
 
 @Service

@@ -1,6 +1,6 @@
-package com.good.video.driver.db.gateway;
+package com.good.video.adapter.gateway;
 
-import com.good.video.domain.usuario.Usuario;
+import com.good.video.entity.domain.Usuario;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;

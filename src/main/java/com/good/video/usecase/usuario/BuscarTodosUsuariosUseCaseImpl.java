@@ -1,7 +1,7 @@
-package com.good.video.application.usecase.usuario;
+package com.good.video.usecase.usuario;
 
-import com.good.video.driver.db.gateway.UsuarioDatabaseGateway;
-import com.good.video.domain.usuario.Usuario;
+import com.good.video.adapter.gateway.UsuarioDatabaseGateway;
+import com.good.video.entity.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

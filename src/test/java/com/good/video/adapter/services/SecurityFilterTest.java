@@ -1,10 +1,12 @@
-package com.good.video.driver.services;
+package com.good.video.adapter.services;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import com.good.video.adapter.controller.UsuarioController;
-import com.good.video.driver.db.repository.entity.UsuarioEntity;
+import com.good.video.adapter.services.SecurityFilter;
+import com.good.video.adapter.services.TokenService;
+import com.good.video.entity.UsuarioEntity;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

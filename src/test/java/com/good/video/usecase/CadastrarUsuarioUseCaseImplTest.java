@@ -1,13 +1,13 @@
-package com.good.video.application.usecase;
+package com.good.video.usecase;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 
-import com.good.video.application.usecase.usuario.CadastrarUsuarioUseCaseImpl;
-import com.good.video.domain.usuario.Usuario;
-import com.good.video.driver.db.gateway.UsuarioDatabaseGateway;
+import com.good.video.usecase.usuario.CadastrarUsuarioUseCaseImpl;
+import com.good.video.entity.domain.Usuario;
+import com.good.video.adapter.gateway.UsuarioDatabaseGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,7 +1,7 @@
-package com.good.video.driver.db.repository.entity;
+package com.good.video.entity;
 
-import com.good.video.domain.usuario.Usuario;
-import com.good.video.domain.usuario.UsuarioPermissoes;
+import com.good.video.entity.domain.Usuario;
+import com.good.video.entity.domain.UsuarioPermissoes;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

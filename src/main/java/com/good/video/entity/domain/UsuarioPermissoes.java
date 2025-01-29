@@ -1,4 +1,4 @@
-package com.good.video.domain.usuario;
+package com.good.video.entity.domain;
 
 public enum UsuarioPermissoes {
     USUARIO("user"),

@@ -1,6 +1,6 @@
 package com.good.video.driver.db.repository;
 
-import com.good.video.driver.db.repository.entity.UsuarioEntity;
+import com.good.video.entity.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.userdetails.UserDetails;
