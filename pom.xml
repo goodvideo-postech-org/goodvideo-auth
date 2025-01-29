@@ -36,7 +36,7 @@
 			**/adapter/**,
 			**/driver/db/**,
 			**/driver/web/**,
-			**/domain/**,
+			**/entity/domain/**,
 		</sonar.coverage.exclusions>
 	</properties>
 	<dependencies>
