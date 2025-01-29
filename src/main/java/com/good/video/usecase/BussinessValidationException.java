@@ -6,8 +6,4 @@ public class BussinessValidationException extends RuntimeException {
         super(message);
     }
 
-    public BussinessValidationException(String message, Throwable e) {
-        super(message, e);
-    }
-
 }
