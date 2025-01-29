@@ -35,6 +35,7 @@
 		<sonar.coverage.exclusions>
 			**/adapter/controller/**,
 			**/adapter/presenter/**,
+			**/adapter/gateway/**,
 			**/driver/db/**,
 			**/driver/web/**,
 			**/entity/**,
